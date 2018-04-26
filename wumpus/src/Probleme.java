@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by Charles on 07/04/2018.
  */
@@ -8,6 +10,33 @@ public class Probleme {
         return result;
     }
 
+    ArrayList <String> observation(State s, String a){
+        int hero = s.getPosHero();
+        int trou1 = s.getPosTrou1();
+        int trou2 = s.getPosTrou2();
+        int wump = s.getPosWumpus();
+        boolean Btrou1 = false;
+        boolean Btrou2 = false;
+        ArrayList<String> res = new ArrayList<>();
+
+        if (hero+1 == trou1 || hero-1 == trou1 || hero+4 == trou1 || hero-4 == trou1){
+            Btrou1 = true;
+        }
+
+        if (hero+1 == trou2 || hero-1 == trou2 || hero+4 == trou2 || hero-4 == trou2){
+            Btrou2 = true;
+        }
+
+        if (hero+1 == wump || hero-1 == wump || hero+4 == wump || hero-4 == wump){
+            res.add("odeur");
+        }
+
+        if (Btrou1 || Btrou2){
+            res.add("air");
+        }
+
+        return res;
+    }
 
     State transition (State s, String a){
         State res = null;
