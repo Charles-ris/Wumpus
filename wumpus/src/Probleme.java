@@ -10,7 +10,7 @@ public class Probleme {
         return result;
     }
 
-    ArrayList <String> observation(State s, String a){
+    public ArrayList <String> observation(State s, String a){
         int hero = s.getPosHero();
         int trou1 = s.getPosTrou1();
         int trou2 = s.getPosTrou2();
@@ -38,7 +38,7 @@ public class Probleme {
         return res;
     }
 
-    State transition (State s, String a){
+    public State transition (State s, String a){
         State res = null;
         int hero = s.getPosHero();
         int wumpus = s.getPosWumpus();
