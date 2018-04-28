@@ -65,9 +65,6 @@ public class State {
 
         for (int i=0; i<=15;i++){
             tmp = ".";
-            if (this.posHero == i){
-                tmp ="H";
-            }
 
             if (this.posTrou1 == i){
                 tmp ="O";
@@ -84,6 +81,10 @@ public class State {
             if (this.posWumpus == i){
                 tmp ="W";
             }
+
+            if (this.posHero == i){
+                tmp ="H";
+            }
             res +=tmp+" ";
 
             if (i%4==3){
@@ -93,6 +94,14 @@ public class State {
 
         res+="\n"+"Arrow :"+this.arrow;
         return res;
+    }
+
+    public boolean finPartie(){
+        if (this.posHero == this.posWumpus || this.posHero == this.posTrou1|| this.posHero == this.posTrou2 ){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
