@@ -22,7 +22,7 @@ public class Main {
         System.out.println(s.toString());*/
 
 
-        State s = new State(12,5,true,0,2,11);
+        State s = new State(12,4,true,0,1,6);
         Probleme p = new Probleme();
         //p.transition(s,"droite");
        // System.out.println(p.deplacementsPossibles(s));

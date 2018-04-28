@@ -130,6 +130,30 @@ public class Probleme {
         Collections.sort(visite);
         Collections.sort(possibiliteT1);
         Collections.sort(possibiliteT2);
+        if (possibiliteW.size()==1 && deplacements.contains(possibiliteW.get(0))){
+            if (possibiliteT1.contains(possibiliteW.get(0))){
+                possibiliteT1.remove(possibiliteW.get(0));
+            }
+            if (possibiliteT2.contains(possibiliteW.get(0))){
+                possibiliteT2.remove(possibiliteW.get(0));
+            }
+            if (!observations.contains("odeur")){
+                safe.add(possibiliteW.get(0));
+            }
+        }
+
+        if (possibiliteT1.size()==1 && possibiliteW.contains(possibiliteT1.get(0))){
+            possibiliteW.remove(possibiliteT1.get(0));
+        }
+        if (possibiliteT2.size()==1 && possibiliteW.contains(possibiliteT2.get(0))){
+            possibiliteW.remove(possibiliteT2.get(0));
+        }
+        if (possibiliteT2.size()==1 && !possibiliteT1.equals(possibiliteT2) && possibiliteT1.contains(possibiliteT2.get(0))){
+            possibiliteT1.remove(possibiliteT2.get(0));
+        }
+        if (possibiliteT1.size()==1 && !possibiliteT1.equals(possibiliteT2) && possibiliteT2.contains(possibiliteT1.get(0))){
+            possibiliteT2.remove(possibiliteT1.get(0));
+        }
 
 
         // IA
