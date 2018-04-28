@@ -128,6 +128,8 @@ public class Probleme {
         possibiliteT2 = new ArrayList(set) ;
         Collections.sort(safe);
         Collections.sort(visite);
+        Collections.sort(possibiliteT1);
+        Collections.sort(possibiliteT2);
 
 
         // IA
