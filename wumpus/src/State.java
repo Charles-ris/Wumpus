@@ -46,6 +46,16 @@ public class State {
         return posWumpus;
     }
 
+
+    /**
+     * Constructeur
+     * @param h position du héro
+     * @param w position du wumpus
+     * @param a booléen indiquant si oui ou non il a une fleche
+     * @param g position de l'or
+     * @param t1 position du premier trou
+     * @param t2 position du deuxieme troi
+     */
     public State(int h, int w, boolean a, int g, int t1, int t2){
         this.posHero=h;
         this.posWumpus=w;
@@ -55,6 +65,15 @@ public class State {
         this.posTrou2=t2;
     }
 
+    /**
+     * fonction to String
+     * H correspond au héro
+     * . Case vide
+     * W wumpus
+     * O trou
+     * G gold
+     * @return
+     */
     public String toString(){
         // H  pour hero
         // . pour rien
@@ -96,6 +115,10 @@ public class State {
         return res;
     }
 
+    /**
+     *
+     * @return true si le hero est sur la meme case que le wumpus ou un trou
+     */
     public boolean finPartie(){
         if (this.posHero == this.posWumpus || this.posHero == this.posTrou1|| this.posHero == this.posTrou2 ){
             return true;

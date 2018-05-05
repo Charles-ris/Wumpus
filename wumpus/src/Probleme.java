@@ -8,19 +8,32 @@ import java.util.Set;
  */
 public class Probleme {
 
+    /**
+     * liste des actions possibles
+     * @return
+     */
     String [] actions(){
         String [] result = {"gauche", "droite", "haut", "bas", "tirerG", "tirerD", "tirerH", "tirerB"};
         return result;
     }
 
-
+    // Case possible du Wumpus
     public ArrayList<Integer> possibiliteW = new ArrayList<>();
+    // Case possible du premier trou
     public ArrayList<Integer> possibiliteT1 = new ArrayList<>();
+    // Case possible du deuxieme trou
     public ArrayList<Integer> possibiliteT2 = new ArrayList<>();
+    // Liste des cases identifiées comme non dangereuse
     public ArrayList<Integer> safe = new ArrayList<>();
+    // Liste des cases visitées
     public ArrayList<Integer> visite = new ArrayList<>();
     public int bloque = 0;
 
+    /**
+     * fonction décision, algorithme de décision
+     * @param s
+     * @return une action
+     */
     public String decision(State s){
         // ajoute la case sur laquelle se trouve le hero comme case sure et visite
         if (!safe.contains(s.getPosHero())){
@@ -292,7 +305,11 @@ public class Probleme {
         }
     }
 
-
+    /**
+     * fonction d'observation
+     * @param s
+     * @return une observation odeur pour wumpus et air pour trou
+     */
     public ArrayList <String> observation(State s){
         int hero = s.getPosHero();
         int trou1 = s.getPosTrou1();
@@ -318,6 +335,12 @@ public class Probleme {
         return res;
     }
 
+    /**
+     * Fonction de transition
+     * @param s
+     * @param a action
+     * @return
+     */
     public State transition (State s, String a){
         State res = null;
         int hero = s.getPosHero();
